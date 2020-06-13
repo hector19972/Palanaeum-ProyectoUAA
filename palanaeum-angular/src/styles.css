@@ -2,3 +2,7 @@
 h1{
   text-shadow: chartreuse;
 }
+h2{
+  text-align: center;
+  text-emphasis-color: white;
+}
