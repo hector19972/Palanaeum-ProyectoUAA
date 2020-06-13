@@ -7,6 +7,7 @@ import { SearchComponent } from './components/search/search.component';
 import { LoginComponent } from './components/login/login.component';
 import { AboutComponent } from './components/about/about.component';
 import { PoliticasComponent } from './components/politicas/politicas.component';
+import { QrcodigoComponent } from './components/qrcodigo/qrcodigo.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'politicas', component: PoliticasComponent },
+  {path: 'qrcodigo', component: QrcodigoComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];

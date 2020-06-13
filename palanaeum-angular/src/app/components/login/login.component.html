@@ -1,1 +1,22 @@
-<p>login works!</p>
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<form class="example-form">
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Nombre</mat-label>
+    <input matInput  >
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Apellidos</mat-label>
+    <input matInput  >
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Correo Electronico</mat-label>
+    <input matInput  >
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Contraseña</mat-label>
+    <input matInput  >
+  </mat-form-field>
+
+  <a class="nav-link btn btn-outline-success my-2 my-sm-5" [routerLink]="['login']">Crear cuenta </a>
+
+</form>

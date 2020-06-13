@@ -1,1 +1,13 @@
-<p>search works!</p>
+<div class="row">
+  <div class="col">
+    <input #termino type="text"  class="form-control" placeholder="Buscar por autor.">
+  </div>
+  <mat-form-field>
+  <mat-label>Buscar por...</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let tag of tags" [value]="tag.value">
+      {{tag.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
