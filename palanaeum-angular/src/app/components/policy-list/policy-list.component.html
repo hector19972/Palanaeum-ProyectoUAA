@@ -1,0 +1,58 @@
+<h4>Formularios <small>data</small></h4>
+<hr />
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+  <div class="container">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">policyNumber</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="policyNumber" formControlName="policyNumber" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">creationDate</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="creationDate" formControlName="creationDate" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">expireDate</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="expireDate" formControlName="expireDate" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">policyAmount</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="policyAmount" formControlName="policyAmount" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">&nbsp;</label>
+      <div class="input-group col-md-8">
+        <button type="submit" class="btn btn-outline-primary">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<table>
+  <thead>
+    <th>Number</th>
+    <th>Created At</th>
+    <th>Expire At</th>
+    <th>Amount</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let policy of policies">
+      <td>{{ policy.policyNumber }}</td>
+      <td>{{ policy.creationDate }}</td>
+      <td>{{ policy.expireDate }}</td>
+      <td>{{ policy.policyAmount }}</td>
+      <td>
+        <button (click)="delete(policy.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

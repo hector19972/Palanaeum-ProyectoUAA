@@ -26,6 +26,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule, MatSelect} from '@angular/material/select';
 //QrCode
 import { QRCodeModule } from 'angularx-qrcode';
+//Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { PolicyListComponent } from './components/policy-list/policy-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     LoginComponent,
     AboutComponent,
     PoliticasComponent,
-    QrcodigoComponent
+    QrcodigoComponent,
+    PolicyListComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,14 @@ import { QRCodeModule } from 'angularx-qrcode';
     MatToolbarModule,
     MatSelectModule,
     //QRCODE
-    QRCodeModule
+    QRCodeModule,
+    //Firebase
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+
+    //Formularios
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
