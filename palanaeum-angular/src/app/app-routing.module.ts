@@ -9,6 +9,7 @@ import { AboutComponent } from './components/about/about.component';
 import { PoliticasComponent } from './components/politicas/politicas.component';
 import { QrcodigoComponent } from './components/qrcodigo/qrcodigo.component';
 import { PolicyListComponent } from './components/policy-list/policy-list.component';
+import { RegistroComponent } from './components/registro/registro/registro.component';
 
 
 const routes: Routes = [
@@ -19,8 +20,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'politicas', component: PoliticasComponent },
-  {path: 'qrcodigo', component: QrcodigoComponent},
-  {path:'CRUD',component:PolicyListComponent},
+  { path: 'qrcodigo', component: QrcodigoComponent },
+  { path: 'CRUD', component: PolicyListComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];

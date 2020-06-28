@@ -32,6 +32,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { PolicyListComponent } from './components/policy-list/policy-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistroComponent } from './components/registro/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     PoliticasComponent,
     QrcodigoComponent,
-    PolicyListComponent
+    PolicyListComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
