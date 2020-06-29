@@ -22,6 +22,7 @@ export class AppComponent {
     ApMaterno: '',
     correo: '',
     contraseña: '',
+    rol:''
   };
   usuario: Usuario = {
     uid: '',
@@ -30,6 +31,7 @@ export class AppComponent {
     ApMaterno: '',
     correo: '',
     contraseña: '',
+    rol:''
   };
 
   ngOnInit(): void {
@@ -60,8 +62,8 @@ export class AppComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
+    // Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    // Add '${implements OnChanges}' to the class.
     this.usuarioLogueado = this.servUsrs.optenerUsuario();
     console.log('cambios', this.servUsrs.optenerUsuario());
 

@@ -18,6 +18,7 @@ export class RegistroComponent implements OnInit {
     ApMaterno: '',
     correo: '',
     contraseña: '',
+    rol: ''
   };
 
   constructor(private usuarioNuevo: UsuariosService, private router: Router) {

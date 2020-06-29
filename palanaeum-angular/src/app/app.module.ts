@@ -18,12 +18,12 @@ import { PoliticasComponent } from './components/politicas/politicas.component';
 import { QrcodigoComponent } from './components/qrcodigo/qrcodigo.component';
 import { RegistroComponent } from './components/registro/registro.component';
 // Material
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSelectModule, MatSelect} from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSelectModule, MatSelect } from '@angular/material/select';
 // QrCode
 import { QRCodeModule } from 'angularx-qrcode';
 // Firebase
@@ -32,6 +32,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { PolicyListComponent } from './components/policy-list/policy-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+// Mailer
 
 
 
@@ -64,17 +66,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     MatToolbarModule,
     MatSelectModule,
-     // QRCODE
+    // QRCODE
     QRCodeModule,
-     // Firebase
+    // Firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-
-     // Formularios
+    // Mailer
+    // Formularios
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent ]
 })
 export class AppModule { }

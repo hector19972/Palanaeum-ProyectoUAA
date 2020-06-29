@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
   usuarioLogueado: Usuario = {
     uid: '',
     nombre: '',
+    rol: '',
     ApPaterno: '',
     ApMaterno: '',
     correo: '',
@@ -77,6 +78,7 @@ export class NavbarComponent implements OnInit {
       ApMaterno: '',
       correo: '',
       contraseña: '',
+      rol: ''
     };
     console.log('Cerrando secion los valores deverian ser ...',this.usuarioLogueado);
     // tslint:disable-next-line: no-unused-expression

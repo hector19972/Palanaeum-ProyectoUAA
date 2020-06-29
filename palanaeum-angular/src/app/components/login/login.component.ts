@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
       'correo': new FormControl(),
       'contraseña': new FormControl(),
     });
+
   }
   ngOnInit(): void {
   }

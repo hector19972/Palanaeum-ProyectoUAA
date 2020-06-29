@@ -16,5 +16,6 @@ export class Usuario{
   ApMaterno: string;
   correo: string;
   contraseña: string;
+  rol: string;
 
 }

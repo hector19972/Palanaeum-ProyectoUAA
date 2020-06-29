@@ -1,12 +1,12 @@
-<h1>Donde nos puedes encontrar?</h1>
-<ul>
-  <li>Twitter</li>
-  <li>Facebook</li>
-  <li>Instragram</li>
-</ul>
-<h1>Para donaciones o aclaraciones sobre tu cuenta:</h1>
-<ul>
-  <li>correo electronico A</li>
-  <li>Correo electronico B</li>
-  <li>Direccion de la biblioteca</li>
-</ul>
+<form [formGroup]="forma" (ngSubmit)="enviarCorreo()" class="example-form">
+  <div class="form-group">
+    <label for="ExampleInput">Asunto</label>
+    <input type="text" formControlName="asunto" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">...</label>
+    <textarea formControlName="mensaje" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
