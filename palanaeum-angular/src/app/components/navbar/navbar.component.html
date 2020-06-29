@@ -10,16 +10,16 @@
     <h1>Palanaeum</h1>
   </a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse ${implements OnChanges}"  id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item " routerLinkActive="active">
         <a class="nav-link" [routerLink]="['home']">Recomendaciones </a>
       </li>
       <li class="nav-item " routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['contacto']"> Contacto</a>
+        <a class="nav-link ${implements OnChanges}" [routerLink]="['contacto']"> Contacto</a>
       </li>
-      <li class="nav-item " routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['preguntas']"> Preguntas frecuentes</a>
+      <li class="nav-item ${implements OnChanges} " routerLinkActive="active">
+        <a class="nav-link ${implements OnChanges}"  [routerLink]="['preguntas']"> Preguntas frecuentes</a>
       </li>
       <li class="nav-item " routerLinkActive="active">
         <a class="nav-link" [routerLink]="['search']">Buscar </a>
@@ -40,7 +40,14 @@
         Seguro que escribiste bien el nombre?
       </div>-->
       <li class="nav-item " routerLinkActive="active">
+        <div *ngIf="usuarioLogueado.nombre != '' ; else Registrarse">
+          <h1> Hola {{usuarioLogueado.nombre}}</h1>
+          <a class="nav-link btn btn-outline-danger my-2 my-sm-0" (click)="CerrarSecion()">Cerrar secion </a>
+        </div>
+        <ng-template #Registrarse>
         <a class="nav-link btn btn-outline-success my-2 my-sm-0" [routerLink]="['login']">Iniciar secion </a>
+        <a class="nav-link btn btn-outline-info my-2 my-sm-0" [routerLink]="['reg']">Registrate </a>
+        </ng-template>
       </li>
     </div>
 

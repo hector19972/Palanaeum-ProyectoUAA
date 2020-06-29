@@ -9,3 +9,12 @@ export class Policy {
   extraInfo: string;
 
 }
+export class Usuario{
+  uid: string;
+  nombre: string;
+  ApPaterno: string;
+  ApMaterno: string;
+  correo: string;
+  contraseña: string;
+
+}

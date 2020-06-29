@@ -16,22 +16,24 @@ import { LoginComponent } from './components/login/login.component';
 import { AboutComponent } from './components/about/about.component';
 import { PoliticasComponent } from './components/politicas/politicas.component';
 import { QrcodigoComponent } from './components/qrcodigo/qrcodigo.component';
-
-//Material
+import { RegistroComponent } from './components/registro/registro.component';
+// Material
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule, MatSelect} from '@angular/material/select';
-//QrCode
+// QrCode
 import { QRCodeModule } from 'angularx-qrcode';
-//Firebase
+// Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { PolicyListComponent } from './components/policy-list/policy-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -48,12 +50,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     PoliticasComponent,
     QrcodigoComponent,
-    PolicyListComponent
+    PolicyListComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //Material
+    // Material
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -61,13 +64,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     MatToolbarModule,
     MatSelectModule,
-    //QRCODE
+     // QRCODE
     QRCodeModule,
-    //Firebase
+     // Firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
 
-    //Formularios
+     // Formularios
     FormsModule,
     ReactiveFormsModule
   ],

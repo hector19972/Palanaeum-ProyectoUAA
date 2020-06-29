@@ -1,0 +1,34 @@
+
+<form [formGroup]="forma" (ngSubmit)="registrarUsuario()" class="example-form">
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Nombre/s</mat-label>
+    <input matInput class="form-control" type="text"  formControlName="nombre" >
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Apellido Paterno</mat-label>
+    <input matInput class="form-control" type="text"  formControlName="apPaterno" >
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Apellido Materno</mat-label>
+    <input matInput class="form-control" type="text"  formControlName="apMaterno" >
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Correo Electronico</mat-label>
+    <input matInput  class="form-control" type="text"  formControlName="correo">
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Contraseña</mat-label>
+    <input matInput class="form-control" type="text"  formControlName="contraseña" >
+  </mat-form-field>
+  <mat-form-field class="example-full-width basic-container">
+    <mat-label>Repite la Contraseña</mat-label>
+    <input matInput class="form-control" type="text"  formControlName="contraseñaR"  >
+  </mat-form-field>
+
+  <div class="input-group col-md-8">
+    <button type="submit" class="btn btn-outline-primary">
+      Guardar
+    </button>
+    </div>
+
+</form>

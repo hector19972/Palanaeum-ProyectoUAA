@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/services/usuarios.service';
+import { Usuario } from 'src/app/models/policy.model';
+import * as firebase from 'firebase';
 //import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -10,17 +13,74 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private servUsrs: UsuariosService) { }
 
   artistas: any[] = [];
   bandera: boolean;
-  banderaNombre: boolean=false;
+  usuarioLogueado: Usuario = {
+    uid: '',
+    nombre: '',
+    ApPaterno: '',
+    ApMaterno: '',
+    correo: '',
+    contraseña: '',
+  };
+  banderaNombre: boolean = false;
 
   ngOnInit(): void {
+    //this.usuarioLogueado = this.servUsrs.optenerUsuario();
+
+    //console.log('inicio', this.servUsrs.optenerUsuario());
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        // ...
+        this.usuarioLogueado = this.servUsrs.optenerDatos(uid);
+        console.log('1  ', this.usuarioLogueado);
+        console.log('2  ', this.servUsrs.optenerDatos(uid));
+        //return usuario;
+        console.log('inicio componentes', this.usuarioLogueado);
+      } else {
+        // User is signed out.
+        // ...
+      }
+    });
+
   }
 
-  buscarArtista(termino: string){
-    this.router.navigate(['/buscador',termino]);
+  ngOnChanges(changes: SimpleChanges): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    this.usuarioLogueado = this.servUsrs.optenerUsuario();
+    console.log('cambios' , this.servUsrs.optenerUsuario());
+
+  }
+
+
+  buscarArtista(termino: string) {
+    this.router.navigate(['/buscador', termino]);
+  }
+  CerrarSecion(){
+    // tslint:disable-next-line: no-unused-expression
+    this.servUsrs.CerrarSecion();
+    this.usuarioLogueado =  {
+      uid: '',
+      nombre: '',
+      ApPaterno: '',
+      ApMaterno: '',
+      correo: '',
+      contraseña: '',
+    };
+    console.log('Cerrando secion los valores deverian ser ...',this.usuarioLogueado);
+    // tslint:disable-next-line: no-unused-expression
+    this.router.navigate(['home']);
   }
 
   buscar(termino: string) {
