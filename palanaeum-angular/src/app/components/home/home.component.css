@@ -1,4 +1,4 @@
-:root {
+.root {
   --columns: 4;
 }
 
@@ -13,7 +13,7 @@ ul{
 }
 
 li{
-  /*grid-column-end: span .2;*/
+  grid-column-end: span .2;
   justify-self: center;
   width: 71%;
   padding-bottom: 71%;

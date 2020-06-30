@@ -80,7 +80,7 @@ export class NavbarComponent implements OnInit {
       contraseña: '',
       rol: ''
     };
-    console.log('Cerrando secion los valores deverian ser ...',this.usuarioLogueado);
+    console.log('Cerrando secion los valores deverian ser ...', this.usuarioLogueado);
     // tslint:disable-next-line: no-unused-expression
     this.router.navigate(['home']);
   }

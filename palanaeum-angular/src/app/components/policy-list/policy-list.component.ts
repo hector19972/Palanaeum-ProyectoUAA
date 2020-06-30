@@ -13,22 +13,22 @@ export class PolicyListComponent implements OnInit {
   forma: FormGroup;
   policies: Policy[];
   policiesguardar: Policy = {
-    id: '',
-    policyNumber: '',
-    creationDate: '',
-    effectiveDate: '',
-    expireDate: '',
-    paymentOption: '',
-    policyAmount: '',
-    extraInfo: ''
+    codigoLibro: '',
+    nombre: '',
+    autor: '',
+    editor: '',
+    url: '',
+    copias: ''
   };
 
   constructor(private policyService: PolicyService) {
     this.forma = new FormGroup({
-      'policyNumber': new FormControl(),
-      'creationDate': new FormControl(),
-      'expireDate': new FormControl(),
-      'policyAmount': new FormControl(),
+      'codigoLibro': new FormControl(),
+      'nombre': new FormControl(),
+      'autor': new FormControl(),
+      'editor': new FormControl(),
+      'url': new FormControl(),
+      'copias': new FormControl()
     })
   }
 
@@ -36,14 +36,12 @@ export class PolicyListComponent implements OnInit {
     this.policyService.getPolicies().subscribe((data) => {
       this.policies = data.map((e) => {
         return {
-          id: e.payload.doc.id,
-          policyNumber: e.payload.doc.data().policyNumber,
-          creationDate: e.payload.doc.data().creationDate,
-          effectiveDate: e.payload.doc.data().effectiveDate,
-          expireDate: e.payload.doc.data().expireDate,
-          paymentOption: e.payload.doc.data().paymentOption,
-          policyAmount: e.payload.doc.data().policyAmount,
-          extraInfo: e.payload.doc.data().extraInfo
+          codigoLibro: e.payload.doc.id,
+          nombre: e.payload.doc.data().nombre,
+          autor: e.payload.doc.data().autor,
+          editor: e.payload.doc.data().editor,
+          url: e.payload.doc.data().url,
+          copias: e.payload.doc.data().copias,
         } as Policy;
       });
     });
@@ -79,10 +77,12 @@ export class PolicyListComponent implements OnInit {
       });
     });*/
     //this.policiesguardar.id=this.forma.get('policyNumber').value;//this.forma.value('policyNumber');
-    this.policiesguardar.policyNumber = this.forma.get('policyNumber').value as string;
-    this.policiesguardar.creationDate = this.forma.get('creationDate').value as string;
-    this.policiesguardar.expireDate = this.forma.get('expireDate').value as string;
-    this.policiesguardar.policyAmount = this.forma.get('policyAmount').value as string;
+
+    this.policiesguardar.nombre = this.forma.get('nombre').value as string;
+    this.policiesguardar.autor = this.forma.get('autor').value as string;
+    this.policiesguardar.editor = this.forma.get('editor').value as string;
+    this.policiesguardar.url = this.forma.get('url').value as string;
+    this.policiesguardar.copias = this.forma.get('copias').value as string;
     this.create(this.policiesguardar);
   }
 }

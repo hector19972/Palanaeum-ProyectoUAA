@@ -1,29 +1,42 @@
-<h4>Formularios <small>data</small></h4>
+<h4>Biblioteca <small>data</small></h4>
 <hr />
 <form [formGroup]="forma" (ngSubmit)="guardarCambios()">
   <div class="container">
+    <!--
     <div class="form-group row">
-      <label class="col-2 col-form-label">policyNumber</label>
+      <label class="col-2 col-form-label">Codigo Libro</label>
       <div class="col-8">
-        <input class="form-control" type="text" placeholder="policyNumber" formControlName="policyNumber" />
+        <input class="form-control" type="text" placeholder="Codigo libro" formControlName="codigoLibro" />
+      </div>
+    </div>-->
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre del libro</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-2 col-form-label">creationDate</label>
+      <label class="col-2 col-form-label">Autor</label>
       <div class="col-8">
-        <input class="form-control" type="text" placeholder="creationDate" formControlName="creationDate" />
+        <input class="form-control" type="text" placeholder="Autor" formControlName="autor" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-2 col-form-label">expireDate</label>
+      <label class="col-2 col-form-label">Editor</label>
       <div class="col-8">
-        <input class="form-control" type="text" placeholder="expireDate" formControlName="expireDate" />
+        <input class="form-control" type="text" placeholder="Editor" formControlName="editor" />
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-2 col-form-label">policyAmount</label>
+      <label class="col-2 col-form-label">Copias</label>
       <div class="col-8">
-        <input class="form-control" type="text" placeholder="policyAmount" formControlName="policyAmount" />
+        <input class="form-control" type="text" placeholder="copias" formControlName="copias" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">URL imagen</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="ingresa la url de la imagen" formControlName="url" />
       </div>
     </div>
     <div class="form-group row">
@@ -37,21 +50,23 @@
   </div>
 </form>
 
-<table>
+<table class="table table-striped table-dark">
   <thead>
-    <th>Number</th>
-    <th>Created At</th>
-    <th>Expire At</th>
-    <th>Amount</th>
+    <th scope="col">Codigo Libro</th>
+    <th scope="col">Nombre libro</th>
+    <th scope="col">Autor</th>
+    <th scope="col">Editor</th>
+    <th scope="col">Copias</th>
   </thead>
   <tbody>
     <tr *ngFor="let policy of policies">
-      <td>{{ policy.policyNumber }}</td>
-      <td>{{ policy.creationDate }}</td>
-      <td>{{ policy.expireDate }}</td>
-      <td>{{ policy.policyAmount }}</td>
+      <td>{{ policy.codigoLibro }}</td>
+      <td>{{ policy.nombre }}</td>
+      <td>{{ policy.autor }}</td>
+      <td>{{ policy.editor }}</td>
+      <td>{{ policy.copias }}</td>
       <td>
-        <button (click)="delete(policy.id)">Delete</button>
+        <button (click)="delete(policy.codigoLibro)">Delete</button>
       </td>
     </tr>
   </tbody>

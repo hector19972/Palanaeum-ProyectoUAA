@@ -37,6 +37,7 @@ export class UsuariosService {
           ApMaterno: '',
           correo: '',
           contraseña: '',
+          rol: ''
         };
         let displayName = user.displayName;
         let email = user.email;
@@ -67,6 +68,7 @@ export class UsuariosService {
       ApMaterno: '',
       correo: '',
       contraseña: '',
+      rol: ''
     };
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -82,7 +84,7 @@ export class UsuariosService {
         // ...
         usuario = this.optenerDatos(uid);
         console.log('1  ', usuario);
-         console.log('2  ', this.optenerDatos(uid));
+        console.log('2  ', this.optenerDatos(uid));
         //return usuario;
       } else {
         // User is signed out.
@@ -93,15 +95,15 @@ export class UsuariosService {
     return usuario as Usuario;
   }
 
-  CerrarSecion(){
-    console.log('Cerrando cesion')
+  CerrarSecion() {
+    console.log('Cerrando cesion');
     firebase.auth().signOut().catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(error);
     });
   }
-  IniciarSecion(correo, contraseña){
+  IniciarSecion(correo, contraseña) {
     firebase.auth().signInWithEmailAndPassword(correo, contraseña).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -118,6 +120,7 @@ export class UsuariosService {
       ApMaterno: '',
       correo: '',
       contraseña: '',
+      rol: ''
     };
     let usrRef = this.firestore.collection('Usuarios').doc(uid);
     let getDoc = usrRef.get()
@@ -130,6 +133,7 @@ export class UsuariosService {
           usuario.ApMaterno = doc.data().ApMaterno;
           usuario.correo = doc.data().correo;
           usuario.contraseña = 'saludos';
+          usuario.rol = doc.data().rol;
           //console.log(doc.data().uid as string, usuario);
           return usuario;
         } else {

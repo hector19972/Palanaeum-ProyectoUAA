@@ -10,7 +10,7 @@
     <h1>Palanaeum</h1>
   </a>
 
-  <div class="collapse navbar-collapse "  id="navbarSupportedContent">
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item " routerLinkActive="active">
         <a class="nav-link" [routerLink]="['home']">Recomendaciones </a>
@@ -19,7 +19,7 @@
         <a class="nav-link " [routerLink]="['contacto']"> Contacto</a>
       </li>
       <li class="nav-item  " routerLinkActive="active">
-        <a class="nav-link "  [routerLink]="['preguntas']"> Preguntas frecuentes</a>
+        <a class="nav-link " [routerLink]="['preguntas']"> Preguntas frecuentes</a>
       </li>
       <li class="nav-item " routerLinkActive="active">
         <a class="nav-link" [routerLink]="['search']">Buscar </a>
@@ -27,12 +27,14 @@
       <li class="nav-item " routerLinkActive="active">
         <a class="nav-link" [routerLink]="['qrcodigo']">CodigoQr </a>
       </li>
-      <li class="nav-item " routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['CRUD']">Firebase</a>
-      </li>
+      <div *ngIf="usuarioLogueado.rol == 'Admin'">
+        <li class="nav-item " routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['CRUD']">Firebase</a>
+        </li>
+      </div>
     </ul>
 
-    <div class="form-inline my-2 my-lg-0">
+    <div class="form-inline my-2 ">
       <!--<input class="form-control mr-sm-2" type="text" placeholder="Buscar Heore"
       #buscarTexto (keyup.enter)="buscar(buscarTexto.value)">
       <button (click)="buscar(buscarTexto.value)" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
@@ -40,14 +42,14 @@
         Seguro que escribiste bien el nombre?
       </div>-->
       <li class="nav-item " routerLinkActive="active">
-        <div *ngIf="usuarioLogueado.rol == 'admin'"></div>
+
         <div *ngIf="usuarioLogueado.nombre != '' ; else Registrarse">
           <h1> Hola {{usuarioLogueado.nombre}}</h1>
-          <a class="nav-link btn btn-outline-danger my-2 my-sm-0" (click)="CerrarSecion()">Cerrar secion </a>
+          <a class="nav-link btn btn-outline-danger my-2 my-sm-0 fas fa-user-alt-slash" (click)="CerrarSecion()">Cerrar secion </a>
         </div>
         <ng-template #Registrarse>
-        <a class="nav-link btn btn-outline-success my-2 my-sm-0" [routerLink]="['login']">Iniciar secion </a>
-        <a class="nav-link btn btn-outline-info my-2 my-sm-0" [routerLink]="['reg']">Registrate </a>
+          <a class="nav-link btn btn-outline-success my-2 my-sm-0 fas fa-user-circle" [routerLink]="['login']">Iniciar secion </a>
+          <a class="nav-link btn btn-outline-info my-2 my-sm-0 far fa-user-circle" [routerLink]="['reg']">Registrate </a>
         </ng-template>
       </li>
     </div>

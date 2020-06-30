@@ -8,16 +8,16 @@ export class PolicyService {
   constructor(private firestore: AngularFirestore) {}
 
   getPolicies() {
-    return this.firestore.collection('policies').snapshotChanges();
+    return this.firestore.collection('biblioteca').snapshotChanges();
   }
   createPolicy(policy: Policy) {
-    return this.firestore.collection('policies').add(policy);
+    return this.firestore.collection('biblioteca').add(policy);
   }
   updatePolicy(policy: Policy) {
-    delete policy.id;
-    this.firestore.doc('policies/' + policy.id).update(policy);
+    delete policy.codigoLibro;
+    this.firestore.doc('biblioteca/' + policy.codigoLibro).update(policy);
   }
   deletePolicy(policyId: string) {
-    this.firestore.doc('policies/' + policyId).delete();
+    this.firestore.doc('biblioteca/' + policyId).delete();
   }
 }
