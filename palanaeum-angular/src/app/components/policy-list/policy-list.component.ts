@@ -19,6 +19,7 @@ export class PolicyListComponent implements OnInit {
     editor: '',
     url: '',
     copias: ''
+
   };
 
   constructor(private policyService: PolicyService) {
