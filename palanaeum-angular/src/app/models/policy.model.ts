@@ -5,8 +5,6 @@ export class Policy {
   editor: string;
   url: string;
   copias: string;
-
-
 }
 export class Usuario{
   uid: string;
