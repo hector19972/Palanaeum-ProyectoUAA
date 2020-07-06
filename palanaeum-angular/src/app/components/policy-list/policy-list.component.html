@@ -1,6 +1,6 @@
 <h4>Biblioteca <small>data</small></h4>
 <hr />
-<form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()" #f='ngForm'>
   <div class="container">
     <!--
     <div class="form-group row">
@@ -11,38 +11,49 @@
     </div>-->
     <div class="form-group row">
       <label class="col-2 col-form-label">Nombre del libro</label>
-      <div class="col-8">
-        <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" />
-      </div>
+      <mat-form-field class="col-8">
+        <input matInput class="form-control" type="text" placeholder="Nombre" formControlName="nombre" ngModel required />
+      </mat-form-field>
     </div>
     <div class="form-group row">
       <label class="col-2 col-form-label">Autor</label>
-      <div class="col-8">
-        <input class="form-control" type="text" placeholder="Autor" formControlName="autor" />
-      </div>
+      <mat-form-field class="col-8">
+        <input matInput class="form-control" type="text" placeholder="Autor" formControlName="autor" ngModel required />
+      </mat-form-field>
     </div>
     <div class="form-group row">
       <label class="col-2 col-form-label">Editor</label>
-      <div class="col-8">
-        <input class="form-control" type="text" placeholder="Editor" formControlName="editor" />
-      </div>
+      <mat-form-field class="col-8">
+        <input matInput class="form-control" type="text" placeholder="Editor" formControlName="editor" ngModel required/>
+      </mat-form-field>
     </div>
     <div class="form-group row">
       <label class="col-2 col-form-label">Copias</label>
       <div class="col-8">
-        <input class="form-control" type="text" placeholder="copias" formControlName="copias" />
+        <select class=" custom-select mr-sm-2 form-control" type="text" placeholder="copias" formControlName="copias" required>
+          <option selected>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
       </div>
     </div>
     <div class="form-group row">
       <label class="col-2 col-form-label">URL imagen</label>
-      <div class="col-8">
-        <input class="form-control" type="text" placeholder="ingresa la url de la imagen" formControlName="url" />
-      </div>
+      <mat-form-field class="col-8">
+        <input matInput class="form-control" type="text" placeholder="ingresa la url de la imagen" formControlName="url" ngModel required/>
+      </mat-form-field>
     </div>
     <div class="form-group row">
       <label class="col-2 col-form-label">&nbsp;</label>
       <div class="input-group col-md-8">
-        <button type="submit" class="btn btn-outline-primary">
+        <button type="submit" [disabled]="f.invalid" class="btn btn-outline-primary">
           Guardar
         </button>
       </div>

@@ -19,7 +19,6 @@ export class PolicyListComponent implements OnInit {
     editor: '',
     url: '',
     copias: ''
-
   };
 
   constructor(private policyService: PolicyService) {
@@ -84,6 +83,7 @@ export class PolicyListComponent implements OnInit {
     this.policiesguardar.editor = this.forma.get('editor').value as string;
     this.policiesguardar.url = this.forma.get('url').value as string;
     this.policiesguardar.copias = this.forma.get('copias').value as string;
+
     this.create(this.policiesguardar);
   }
 }

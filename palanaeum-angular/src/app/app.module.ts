@@ -24,6 +24,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule, MatSelect } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+
 // QrCode
 import { QRCodeModule } from 'angularx-qrcode';
 // Firebase
@@ -66,6 +69,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatToolbarModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatCardModule,
+
     // QRCODE
     QRCodeModule,
     // Firebase

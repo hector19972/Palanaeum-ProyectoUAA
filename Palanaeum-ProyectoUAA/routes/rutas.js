@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-// const correo = require('../enviarCorreo');/*
 router.get('/enviar1/:mensaje/:asunto', async (req, res) => {
     console.log(req.params.mensaje, '  ', req.params.asunto);
     var jsonData = `{"Correo":[{"mensaje":"${req.params.mensaje}"},{"asunto":"${req.params.asunto}"}]}`;
-    // parse json
+    
     var jsonParsed = JSON.parse(jsonData);
     res.json(jsonParsed);
 });
@@ -37,15 +36,6 @@ router.get('/enviar/:mensaje/:asunto/', async (req, res) => {
         html: `<b>Un usuario a tenido problemas:</b><p>${req.params.mensaje}</p>`
     }
 
-    /* verify connection configuration
-    transport.verify(function (error, success) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("Server is ready to take our messages");
-        }
-    });*/
-
     transport.sendMail(mail, function (error, info) {
         if (error) {
             console.log(error);
@@ -57,6 +47,14 @@ router.get('/enviar/:mensaje/:asunto/', async (req, res) => {
 
         transport.close();
     });
+     /* verify connection configuration
+    transport.verify(function (error, success) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log("Server is ready to take our messages");
+        }
+    });*/
     // const correo = require('../enviarCorreo');
     /*
     var nodemailer = require('nodemailer');

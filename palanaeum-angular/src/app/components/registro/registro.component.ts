@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Usuario } from 'src/app/models/policy.model';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -29,6 +30,7 @@ export class RegistroComponent implements OnInit {
       'correo': new FormControl(),
       'contraseña': new FormControl(),
       'contraseñaR': new FormControl(),
+      'terminos': new FormControl(),
     });
   }
 
